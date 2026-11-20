@@ -1,0 +1,15 @@
+[project]
+name = "deploykit"
+version = "0.1.0"
+description = "A 12-week customer-facing AI agent deployment, end to end: reference agent, offline gate, pilot metrics and a weekly steering pack."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Flavio Mericio"}]
+dependencies = []
+
+[project.scripts]
+deploykit = "deploykit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

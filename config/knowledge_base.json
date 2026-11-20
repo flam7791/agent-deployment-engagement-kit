@@ -1,0 +1,256 @@
+{
+  "_about": "Approved answers for the fictional Northwind Energia customer-service agent, in Italian and English. The agent may only answer from these texts. Every answer was signed off by the client's content owner (fictional). Policy details are invented.",
+  "version": "2026-11-01",
+  "intents": {
+    "bill_explanation": {
+      "examples_it": [
+        "non capisco la bolletta",
+        "perche la bolletta e cosi alta",
+        "spiegami le voci della fattura",
+        "bolletta piu cara del solito",
+        "importo della bolletta",
+        "conguaglio troppo alto"
+      ],
+      "examples_en": [
+        "i don't understand my bill",
+        "why is my bill so high",
+        "explain the charges on my invoice",
+        "bill higher than usual",
+        "bill amount",
+        "balancing adjustment too high"
+      ],
+      "answer_it": "La bolletta ha tre voci principali: energia consumata, trasporto e gestione del contatore, oneri e imposte. Se l'importo e piu alto del solito, spesso dipende da una lettura stimata o da un conguaglio. Nell'area clienti trova il dettaglio dei consumi mese per mese.",
+      "answer_en": "Your bill has three main parts: energy used, transport and meter management, and system charges and taxes. If it is higher than usual, the usual causes are an estimated reading or a balancing adjustment. Your online account shows consumption month by month.",
+      "sensitive": false
+    },
+    "meter_reading": {
+      "examples_it": [
+        "come comunico la lettura del contatore",
+        "voglio inviare l'autolettura",
+        "lettura contatore",
+        "autolettura gas",
+        "comunico l autolettura del contatore"
+      ],
+      "examples_en": [
+        "how do i submit a meter reading",
+        "send my meter reading",
+        "meter reading",
+        "self reading gas"
+      ],
+      "answer_it": "Puo comunicare l'autolettura dall'area clienti o dall'app, tra il 25 e l'ultimo giorno del mese. Basta inserire i numeri neri del contatore, senza decimali.",
+      "answer_en": "You can submit a meter reading in your online account or the app, from the 25th to the last day of the month. Enter the black digits on the meter, without decimals.",
+      "sensitive": false
+    },
+    "moving_house": {
+      "examples_it": [
+        "mi trasferisco",
+        "cambio casa",
+        "voglio fare la voltura",
+        "trasloco attivare la fornitura nella nuova casa"
+      ],
+      "examples_en": [
+        "i am moving house",
+        "moving to a new address",
+        "transfer my supply",
+        "set up supply at my new home"
+      ],
+      "answer_it": "Per un trasloco serve chiudere la fornitura nella vecchia casa e attivarla nella nuova. Puo fare entrambe le richieste dall'area clienti, alla voce Trasloco, almeno 10 giorni lavorativi prima della data.",
+      "answer_en": "When you move, the supply at the old address is closed and a new one opened at the new address. You can request both in your online account under Moving home, at least 10 working days before the date.",
+      "sensitive": false
+    },
+    "payment_methods": {
+      "examples_it": [
+        "come posso pagare",
+        "voglio attivare la domiciliazione",
+        "pagare con carta",
+        "metodi di pagamento"
+      ],
+      "examples_en": [
+        "how can i pay",
+        "set up direct debit",
+        "pay by card",
+        "payment methods"
+      ],
+      "answer_it": "Puo pagare con domiciliazione bancaria, carta dall'area clienti o bollettino. La domiciliazione si attiva dall'area clienti e vale dalla bolletta successiva.",
+      "answer_en": "You can pay by direct debit, by card in your online account, or by payment slip. Direct debit is set up in your online account and applies from the next bill.",
+      "sensitive": false
+    },
+    "outage": {
+      "examples_it": [
+        "non ho la luce",
+        "manca la corrente",
+        "guasto",
+        "interruzione di corrente nel quartiere"
+      ],
+      "examples_en": [
+        "i have no power",
+        "power cut",
+        "outage",
+        "electricity is off in my street"
+      ],
+      "answer_it": "I guasti sulla rete sono gestiti dal distributore locale, che risponde 24 ore su 24 al numero verde indicato in bolletta alla voce Pronto intervento. Se nessun vicino ha corrente, si tratta probabilmente di un guasto di rete.",
+      "answer_en": "Faults on the network are handled by the local distributor, available 24/7 on the emergency number printed on your bill. If your neighbours have no power either, it is probably a network fault.",
+      "sensitive": false
+    }
+  },
+  "escalation_intents": {
+    "complaint": {
+      "examples_it": [
+        "voglio fare un reclamo",
+        "sono molto insoddisfatto",
+        "vi denuncio",
+        "avvocato",
+        "reclamo"
+      ],
+      "examples_en": [
+        "i want to make a complaint",
+        "this is unacceptable",
+        "i will take legal action",
+        "lawyer",
+        "complaint"
+      ],
+      "reason": "formal complaints and legal threats go to a person"
+    },
+    "payment_hardship": {
+      "examples_it": [
+        "non riesco a pagare",
+        "rateizzare la bolletta",
+        "difficolta economiche",
+        "posso pagare a rate"
+      ],
+      "examples_en": [
+        "i can't afford to pay",
+        "payment plan",
+        "financial difficulty",
+        "pay in instalments"
+      ],
+      "reason": "payment plans need an assessment by a trained advisor"
+    },
+    "vulnerability": {
+      "examples_it": [
+        "ho un macchinario medico",
+        "persona anziana senza riscaldamento",
+        "ossigeno",
+        "sono disabile"
+      ],
+      "examples_en": [
+        "medical equipment",
+        "elderly person without heating",
+        "oxygen",
+        "i am disabled"
+      ],
+      "reason": "possible vulnerable customer: priority handling by a person"
+    },
+    "account_change": {
+      "examples_it": [
+        "cambiare iban",
+        "cambiare intestatario",
+        "modificare i dati bancari"
+      ],
+      "examples_en": [
+        "change my bank details",
+        "change the account holder",
+        "update my iban"
+      ],
+      "reason": "changes to bank details or account holder need identity checks"
+    }
+  },
+  "_tuning_log": [
+    "2026-11-01: added single-word complaint examples and a balancing-adjustment example after the dev set (D11, D24); the test set was not used for tuning.",
+    "2026-11-18: added escalation_keywords (safety net) after an independent review found six must-escalate rephrasings answered; red-team set added (see evals/EVALS.md).",
+    "2026-11-18: after the first red-team run (R07, R12, R13 handed off for the wrong reason; R17 answered with the wrong intent) added keywords and one meter example. The red-team set is now a regression set, no longer held out."
+  ],
+  "escalation_keywords": {
+    "_about": "Safety net: any of these words or phrases sends the conversation to a person, whatever else matches. Kept deliberately broad; an unnecessary handoff costs minutes, a missed one can harm a customer.",
+    "complaint": [
+      "reclamo",
+      "denuncia",
+      "denuncio",
+      "avvocato",
+      "tribunale",
+      "conciliazione",
+      "complaint",
+      "complain",
+      "sue",
+      "legal",
+      "lawyer",
+      "solicitor",
+      "ombudsman",
+      "court",
+      "fare causa",
+      "faccio causa",
+      "conciliat"
+    ],
+    "payment_hardship": [
+      "non posso pagare",
+      "non riesco a pagare",
+      "senza lavoro",
+      "disoccupat",
+      "difficolta economic",
+      "rateizz",
+      "debito",
+      "can t pay",
+      "cannot pay",
+      "can t afford",
+      "cannot afford",
+      "cannot cover",
+      "can t cover",
+      "lost my job",
+      "unemployed",
+      "instalment",
+      "installment",
+      "payment plan",
+      "hardship",
+      "debt",
+      "struggling to pay",
+      "a rate",
+      "perso il lavoro"
+    ],
+    "vulnerability": [
+      "dialisi",
+      "ossigeno",
+      "salvavita",
+      "macchinario medico",
+      "apparecchio medico",
+      "disabil",
+      "anzian",
+      "vive da sol",
+      "90 anni",
+      "neonat",
+      "malat",
+      "dialysis",
+      "oxygen",
+      "life support",
+      "medical equipment",
+      "medical device",
+      "disabled",
+      "elderly",
+      "lives alone",
+      "newborn",
+      "seriously ill",
+      "vulnerable",
+      "pacemaker",
+      "invalidita"
+    ],
+    "account_change": [
+      "iban",
+      "conto corrente",
+      "altro conto",
+      "dati bancari",
+      "intestatario",
+      "coordinate bancarie",
+      "bank account",
+      "bank details",
+      "sort code",
+      "account holder",
+      "account number",
+      "new bank",
+      "in my name",
+      "a mio nome",
+      "deceased",
+      "late father",
+      "late mother",
+      "defunt"
+    ]
+  }
+}

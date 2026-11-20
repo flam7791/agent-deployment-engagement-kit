@@ -1,0 +1,10 @@
+# Design decisions
+
+- **The escalation policy and the evaluation set come before the model.** The reference agent is deliberately simple and deterministic. It fixes what must always reach a person (complaints, payment hardship, possible vulnerability, identity changes, personal financial data) and the held-out test set on which any model-based agent must later prove itself. CI fails the build if a single must-escalate message is answered.
+- **Escalation wins.** If a message matches both an answer and an escalation ("I can't pay this bill, can I pay in instalments?"), it goes to a person.
+- **Approved text only.** Every answer is signed by a content owner in each language. The agent never improvises, so the worst automated failure is an unnecessary handoff, not a wrong promise. A unit test checks that every answer given is approved text.
+- **Dev set for tuning, test set for the gate.** The examples were tuned on the dev set only; the reported gate result is from messages the tuning never saw (two answerable test messages are still handed off, which the gate tolerates).
+- **A red-team set, because the test set was too kind.** The first held-out set scored 100% on escalation, yet an independent review found six rephrased sensitive messages that the agent answered. Two fixes: a deliberately broad safety-keyword net (an unnecessary handoff costs minutes; a missed one can harm a customer), and a red-team set that runs as its own gate in CI.
+- **The pilot measures the whole service, not the bot.** The week-9 problem in the example is the human queue after handoff, not the agent. That is why the wait after handoff is a pilot target.
+- **The rule recommends; the sponsor decides.** Targets and the widen rule are fixed with the sponsor in week 3 and do not move. The steering note reports the rule's recommendation and leaves the decision open.
+- **No savings before the value review.** The note never estimates savings; the value review happens in week 12 against the client's own baseline.

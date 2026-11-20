@@ -1,0 +1,202 @@
+{
+ "meta": {
+  "tool": "deploykit",
+  "version": "0.1.0"
+ },
+ "engagement": {
+  "client": "Northwind Energia (fictional)",
+  "sponsor": "Director of Customer Operations",
+  "process_owner": "Head of Customer Service",
+  "engagement_weeks": 12,
+  "current_week": 9,
+  "scope": "Customer chat on the website, Italian and English; five approved intents answered, four escalation intents always handed to a person."
+ },
+ "milestones": [
+  {
+   "week": 2,
+   "name": "Discovery: top contact reasons, handoff paths and approved content owners mapped",
+   "status": "done"
+  },
+  {
+   "week": 3,
+   "name": "Scope and success criteria signed by the sponsor",
+   "status": "done"
+  },
+  {
+   "week": 5,
+   "name": "Approved answers (IT/EN) signed off by the content owner",
+   "status": "done"
+  },
+  {
+   "week": 6,
+   "name": "Offline evaluation gate passed on the held-out test set",
+   "status": "done"
+  },
+  {
+   "week": 7,
+   "name": "Pilot live on 10% of chat traffic",
+   "status": "done"
+  },
+  {
+   "week": 10,
+   "name": "Decision: widen to 50% of chat traffic",
+   "status": "pending"
+  },
+  {
+   "week": 11,
+   "name": "Handover: client team runs content updates and the weekly review",
+   "status": "planned"
+  },
+  {
+   "week": 12,
+   "name": "Close: value review against the week-3 baseline",
+   "status": "planned"
+  }
+ ],
+ "late_milestones": [],
+ "offline_eval": {
+  "metrics": {
+   "messages": 30,
+   "intent_accuracy": 0.967,
+   "escalation_recall": 1.0,
+   "false_handoff_rate": 0.062,
+   "wrong_answer_count": 0,
+   "language_match": 1.0
+  },
+  "gate": {
+   "intent_accuracy_min": 0.85,
+   "escalation_recall_min": 1.0,
+   "false_handoff_rate_max": 0.15,
+   "language_match_min": 0.95,
+   "wrong_answers_max": 0
+  },
+  "checks": {
+   "intent_accuracy": true,
+   "escalation_recall": true,
+   "false_handoff_rate": true,
+   "language_match": true,
+   "wrong_answers": true
+  },
+  "passed": true
+ },
+ "pilot": {
+  "targets": {
+   "containment_min": 0.55,
+   "csat_min": 4.0,
+   "repeat_contact_max": 0.12,
+   "handoff_wait_median_min_max": 10
+  },
+  "weeks": [
+   {
+    "week": 7,
+    "conversations": 480,
+    "containment": 0.458,
+    "handoff_rate": 0.442,
+    "csat": 3.79,
+    "csat_responses": 163,
+    "repeat_contact": 0.156,
+    "handoff_wait_median_min": 7.0,
+    "italian_share": 0.81,
+    "checks": {
+     "containment": false,
+     "csat": false,
+     "repeat_contact": false,
+     "handoff_wait": true
+    },
+    "all_met": false
+   },
+   {
+    "week": 8,
+    "conversations": 520,
+    "containment": 0.556,
+    "handoff_rate": 0.342,
+    "csat": 4.12,
+    "csat_responses": 186,
+    "repeat_contact": 0.098,
+    "handoff_wait_median_min": 9.0,
+    "italian_share": 0.796,
+    "checks": {
+     "containment": true,
+     "csat": true,
+     "repeat_contact": true,
+     "handoff_wait": true
+    },
+    "all_met": true
+   },
+   {
+    "week": 9,
+    "conversations": 560,
+    "containment": 0.579,
+    "handoff_rate": 0.334,
+    "csat": 4.02,
+    "csat_responses": 196,
+    "repeat_contact": 0.111,
+    "handoff_wait_median_min": 9,
+    "italian_share": 0.814,
+    "checks": {
+     "containment": true,
+     "csat": true,
+     "repeat_contact": true,
+     "handoff_wait": true
+    },
+    "all_met": true
+   }
+  ],
+  "latest": {
+   "week": 9,
+   "conversations": 560,
+   "containment": 0.579,
+   "handoff_rate": 0.334,
+   "csat": 4.02,
+   "csat_responses": 196,
+   "repeat_contact": 0.111,
+   "handoff_wait_median_min": 9,
+   "italian_share": 0.814,
+   "checks": {
+    "containment": true,
+    "csat": true,
+    "repeat_contact": true,
+    "handoff_wait": true
+   },
+   "all_met": true
+  }
+ },
+ "recommendation": {
+  "decision": "widen",
+  "reasons": [
+   "offline gate passed and every pilot target met in the last two weeks"
+  ],
+  "rule": "Widen only if the offline gate passed and every pilot target was met in each of the last two pilot weeks."
+ },
+ "baseline": {
+  "chat_contacts_per_week": 5200,
+  "agent_minutes_per_contact": 7.5,
+  "source": "client contact-centre report for the four weeks before the engagement (fictional)"
+ },
+ "risks": [
+  {
+   "risk": "Handoff queue not staffed for the pilot volume; customers wait after the agent hands over",
+   "owner": "Head of Customer Service",
+   "status": "open"
+  },
+  {
+   "risk": "New tariff letters in week 11 may spike bill questions beyond the approved answers",
+   "owner": "Content owner",
+   "status": "open"
+  },
+  {
+   "risk": "Content updates still depend on the delivery team",
+   "owner": "Deployment strategist",
+   "status": "mitigating"
+  }
+ ],
+ "decisions_needed": [
+  "Week 10: Decision: widen to 50% of chat traffic (recommendation by rule: widen)",
+  "Confirm the owner's action on the open risk: Handoff queue not staffed for the pilot volume; customers wait after the agent hands over (owner: Head of Customer Service)",
+  "Confirm the owner's action on the open risk: New tariff letters in week 11 may spike bill questions beyond the approved answers (owner: Content owner)"
+ ],
+ "approval": {
+  "status": "draft for the sponsor's steering meeting",
+  "rule": "The sponsor decides on widening; the agent and the delivery team only recommend."
+ }
+}
